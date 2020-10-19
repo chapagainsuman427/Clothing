@@ -7,42 +7,67 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <style>
-    ul{
+    .navbar{
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: red;
+        background-color: black;
     }
-    li{
+
+    .list{
         float: left;
 
     }
-    li a {
+    .list a {
         display: block;
         color: white;
         text-align: center;
-        padding: 14px 16px;
+        padding: 20px 16px;
         text-decoration: none;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
-    li form{
+    .list form{
         margin-top: 15px;
+    }
+    .form .form-input
+    {
+        padding: 10px;
+        width: 250px;
+        border-radius: 5px;
+        border:none;
+    }
+
+    .form-submit
+    {
+        padding: 8px;
+        background: #428bca;
+        border: none;
+        border-radius: 5px;
+        color: white;
     }
     
     </style>
     </head>
 <body>
-<ul>
-<li><a href="">clothing</a></li>
-<li style="margin-left:150px"> 
-<form action="">
-<input type="text"placeholder="search">
-<input type="submit">
-</form>
-</li>
-<li style="float:right"><a href="">logged in </a> </li>
+<ul class="navbar">
+    <li class="list" style="font-size: 20px; margin-left: 10px; "><a href="">Clothing</a></li>
+    <li class="list" style="margin-left:450px"> 
+    <form action="" class="form">
+        <input type="text"placeholder="Search" class="form-input">
+        <input type="Submit" class="form-submit">
+    </form>
+    </li>
+    <li class="list" style="float:right;margin-right:30px;">
+        <a href="" style="font-size: 18px; border: 2px solid lightgrey; padding: 8px 25px; margin-top: 10px;">Login </a> 
+    </li>
 </ul>
 
+@include('layouts.sidebar')
+
+<div class="content">
+    @yield('content')
+</div>
     
 
 </body>
