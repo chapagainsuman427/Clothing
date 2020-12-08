@@ -1,0 +1,39 @@
+*
+{
+    font-family: sans-serif;
+}
+
+.form-group label
+{
+    font-size: 13px;
+}
+
+.form-group input
+{
+    border-color: #A6A6A6;
+    height: 80%;
+    margin-top: -8px;
+    font-size: 13px;
+}
+
+.form-group input[type="submit"]
+{
+    background-color: #F3CE70;
+    border: 1px solid;
+    color: black;
+    border-color: #a88734 #9C7E31 #846a29;
+    padding: 4px;
+    font-size: 13px;
+}
+
+.paragraph
+{
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.paragraph
+{
+    font-weight: italic;
+}
+

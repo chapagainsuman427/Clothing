@@ -4,21 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Registration</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/register.css">
 </head>
 <body>
     <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-4 p-5 border" style="">
-                <h3>Create Account</h3>
+        <center>
+            <a href="">
+                <img src="/image/Amazon-Logo.png" style="width: 130px;">
+            </a>
+        </center>
+
+        <div class="row justify-content-center" style="padding: 0 10px;">
+            <div class="pt-3 border bg-white" style=" width: 360px; padding: 0 20px;">
+                <h2 class="mb-3">Create account</h2>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <div class="form-group">
+                        <label for="name"><strong>Your name</strong></label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" required>
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><strong>Email</strong></label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" required>
+
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><strong>Password</strong></label>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="At least 8 characters">
+
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                        <p class="paragraph">
+                            <i  class="fas fa-info"></i> 
+                            Passwords must be at least 8 characters.
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm"><strong>Re-enter password</strong></label>
+                        <input type="password" class="form-control" name="password_confirmation" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create your Amazon account" class="btn mt-1 w-100">
+                    </div>
+                </form>
+
+                <p class="paragraph">By creating an account, you aggree to Amazon's Conditions of Use and Privacy Notice.</p>
+                
+                <p class="border-top pt-3" style="font-size: 13px;">Already have an account? 
+                    <a href="{{URL::to('/login')}}">Sign-in 
+                        <i class="fas fa-caret-right"></i>
+                    </a>
+                </p>
             </div>
         </div>
     </div>
